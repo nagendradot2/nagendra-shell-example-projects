@@ -17,6 +17,11 @@ if [ $# -ne 2 ]; then
     exit 1
 fi
 
+# Check if  user already exits
+if id "$user" &>/dev/null; then
+    echo "User $user already exists"
+    exit 1
+fi
 user=$1
 expiry_date=$2
 
